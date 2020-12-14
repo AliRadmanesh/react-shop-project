@@ -1,12 +1,56 @@
 import React, { Component } from "react";
 
+import { getMockProducts } from "../../../server.js";
+
+import styles from "./style.module.css";
+
 class ProductsList extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      productsList: [],
+      isLoading: true,
+    };
+  }
+
+  componentDidMount() {
+    this.getDataFromMockApi();
+  }
+
+  getDataFromMockApi = async () => {
+    const response = await getMockProducts();
+
+    this.setState({
+      productsList: response,
+      isLoading: false,
+    });
+  };
+
+  renderProducts = () => {
+    const { productsList, isLoading } = this.state;
+
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
     return (
-      <div>
-        <p>Products...</p>
+      <div className={styles.listWrapper}>
+        <div>
+          {productsList.map((product) => {
+            return (
+              <div className={styles.productItem} key={product.id}>
+                <div>{product.name}</div>
+                <div>{product.price}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
+  };
+
+  render() {
+    return <>{this.renderProducts()}</>;
   }
 }
 
