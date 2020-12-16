@@ -7,7 +7,7 @@ import styles from "./style.module.css";
 class NavBar extends Component {
   render() {
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.container}>
         <NavBarItem title="Home" />
         <NavBarItem title="Cart" />
         <NavBarItem title="Profile" />
