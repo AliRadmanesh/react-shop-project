@@ -1,5 +1,18 @@
 .productItem {
-  margin: 16px;
+  margin: 8px;
   padding: 8px;
-  box-shadow: 1px 1px 6px gray;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px gainsboro;
+  min-width: 400px;
+}
+
+.productName {
+  font-weight: bold;
+}
+
+.productPrice {
+  margin: 8px 0;
+  color: #fa3d67;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
