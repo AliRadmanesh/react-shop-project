@@ -1,5 +1,16 @@
+.cart-container {
+  margin: 8px;
+}
+
+.cart-empty-container {
+  margin: 8px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 1px 1px 6px gainsboro;
+}
+
 .product-in-cart {
-  width: 100%;
-  padding: 16px;
+  margin: 8px;
+  padding: 8px;
   box-shadow: 1px 1px 6px gainsboro;
 }
