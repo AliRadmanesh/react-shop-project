@@ -27,6 +27,11 @@ class ProductsList extends Component {
     });
   };
 
+  addToCart = (product) => {
+    const { onProductSelected } = this.props;
+    onProductSelected(product);
+  };
+
   renderProducts = () => {
     const { productsList, isLoading } = this.state;
 
@@ -41,6 +46,9 @@ class ProductsList extends Component {
               <div className={styles.productItem} key={product.id}>
                 <div>{product.name}</div>
                 <div>{product.price}</div>
+                <button onClick={() => this.addToCart(product)}>
+                  Add to Cart
+                </button>
               </div>
             );
           })}
