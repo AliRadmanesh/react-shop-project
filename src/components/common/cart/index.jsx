@@ -4,13 +4,18 @@ import "./style.css";
 
 class Cart extends Component {
   render() {
-    return (
-      <div className="product-in-cart">
-        <p>Product Name</p>
-        <p>Product price</p>
-        <p>Sale</p>
-      </div>
-    );
+    const { list, onItemRemove } = this.props;
+
+    return list.map((productItem) => {
+      return (
+        <div className="product-in-cart" key={productItem.id}>
+          <p>{productItem.name}</p>
+          <p>{productItem.price}</p>
+          {productItem.hasOff && <p>Sale</p>}
+          <button onClick={() => onItemRemove(productItem)}>Delete</button>
+        </div>
+      );
+    });
   }
 }
 
