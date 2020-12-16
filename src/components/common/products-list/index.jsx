@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Product from "../product";
 import { getMockProducts } from "../../../server.js";
+import Loading from "../../base/loading";
 
 import styles from "./style.module.css";
 
@@ -33,21 +34,23 @@ class ProductsList extends Component {
     const { onProductSelected } = this.props;
 
     if (isLoading) {
-      return <div>Loading...</div>;
+      return (
+        <div className={styles.loadingContainer}>
+          <Loading />
+        </div>
+      );
     }
     return (
       <div className={styles.listWrapper}>
-        <div>
-          {productsList.map((product) => {
-            return (
-              <Product
-                key={product.id}
-                product={product}
-                addToCart={() => onProductSelected(product)}
-              />
-            );
-          })}
-        </div>
+        {productsList.map((product) => {
+          return (
+            <Product
+              key={product.id}
+              product={product}
+              addToCart={() => onProductSelected(product)}
+            />
+          );
+        })}
       </div>
     );
   };
