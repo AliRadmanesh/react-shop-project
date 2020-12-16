@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
+import Cart from "../../components/common/cart";
 import Header from "../../components/layout/header";
 import NavBar from "../../components/common/nav-bar";
-import Footer from "../../components/layout/footer";
 import ProductsList from "../../components/common/products-list";
-import Cart from "../../components/common/cart";
+
+import styles from "./style.module.css";
 
 class MainPage extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class MainPage extends Component {
 
     this.state = {
       addedToCartList: [],
+      showCart: false,
     };
   }
 
@@ -36,17 +38,33 @@ class MainPage extends Component {
     this.setState({ addedToCartList: filteredCartItems });
   };
 
+  handleCartClick = () => {
+    this.setState((prevState) => {
+      return {
+        showCart: !prevState.showCart,
+      };
+    });
+  };
+
   render() {
-    const { addedToCartList } = this.state;
+    const { addedToCartList, showCart } = this.state;
 
     return (
-      <div className="main-layout">
+      <div className={styles.mainLayout}>
         <Header>
-          <NavBar />
+          <NavBar
+            onCartClick={this.handleCartClick}
+            NumberOfCartItems={addedToCartList.length}
+          />
         </Header>
-        <Cart list={addedToCartList} onItemRemove={this.handleRemoveProduct} />
-        <ProductsList onProductSelected={this.handleOnProductSelected} />
-        <Footer />
+        <Cart
+          isCartVisible={showCart}
+          list={addedToCartList}
+          onItemRemove={this.handleRemoveProduct}
+        />
+        <div className={styles.productContainer}>
+          <ProductsList onProductSelected={this.handleOnProductSelected} />
+        </div>
       </div>
     );
   }
