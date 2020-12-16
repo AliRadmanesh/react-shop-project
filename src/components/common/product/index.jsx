@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import "../../base/button/style.css";
 import styles from "./style.module.css";
 
 class Product extends Component {
@@ -8,9 +9,11 @@ class Product extends Component {
 
     return (
       <div className={styles.productItem}>
-        <div>{product.name}</div>
-        <div>{product.price}</div>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+        <div className={styles.productName}>{product.name}</div>
+        <div className={styles.productPrice}>{product.price}</div>
+        <button className="button-global" onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
       </div>
     );
   }
