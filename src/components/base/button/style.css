@@ -1,0 +1,15 @@
+.button-global {
+  background-color: #fa3d67;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 8px 32px;
+  color: white;
+}
+
+.button-global:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 6px gainsboro;
+  transition: all 0.3s;
+  background-color: #db254c;
+}
