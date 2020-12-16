@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import styles from "./style.module.css";
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,7 @@ class Header extends Component {
   render() {
     const { children } = this.props;
 
-    return <div>{children}</div>;
+    return <div className={styles.container}>{children}</div>;
   }
 }
 
