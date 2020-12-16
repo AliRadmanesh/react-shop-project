@@ -3,14 +3,14 @@ import React, { Component } from "react";
 import styles from "./style.module.css";
 
 class NavBarItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { title } = this.props;
+    const { children, onClick } = this.props;
 
-    return <div className={styles.text}>{title}</div>;
+    return (
+      <div className={styles.text} onClick={onClick}>
+        {children}
+      </div>
+    );
   }
 }
 
