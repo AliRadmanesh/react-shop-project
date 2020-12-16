@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Product from "../product";
 import { getMockProducts } from "../../../server.js";
 
 import styles from "./style.module.css";
@@ -27,13 +28,9 @@ class ProductsList extends Component {
     });
   };
 
-  addToCart = (product) => {
-    const { onProductSelected } = this.props;
-    onProductSelected(product);
-  };
-
   renderProducts = () => {
     const { productsList, isLoading } = this.state;
+    const { onProductSelected } = this.props;
 
     if (isLoading) {
       return <div>Loading...</div>;
@@ -43,13 +40,11 @@ class ProductsList extends Component {
         <div>
           {productsList.map((product) => {
             return (
-              <div className={styles.productItem} key={product.id}>
-                <div>{product.name}</div>
-                <div>{product.price}</div>
-                <button onClick={() => this.addToCart(product)}>
-                  Add to Cart
-                </button>
-              </div>
+              <Product
+                key={product.id}
+                product={product}
+                addToCart={() => onProductSelected(product)}
+              />
             );
           })}
         </div>
