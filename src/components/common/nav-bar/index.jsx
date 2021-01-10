@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
+import { paths } from "routes/paths";
 import NavBarItem from "../nav-bar-item";
 
 import styles from "./style.module.css";
@@ -10,11 +12,15 @@ class NavBar extends Component {
 
     return (
       <div className={styles.container}>
-        <NavBarItem>Home</NavBarItem>
+        <Link to={paths.HOME}>
+          <NavBarItem>Home</NavBarItem>
+        </Link>
         <NavBarItem
           onClick={onCartClick}
         >{`Cart (${NumberOfCartItems})`}</NavBarItem>
-        <NavBarItem>Profile</NavBarItem>
+        <Link to={paths.PROFILE}>
+          <NavBarItem>Profile</NavBarItem>
+        </Link>
       </div>
     );
   }
