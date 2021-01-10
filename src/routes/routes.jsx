@@ -1,13 +1,13 @@
 import { paths } from "./paths";
 
-import Home from "../pages/main-page";
-import Profile from "../pages/profile";
-import Cart from "../components/common/cart";
-import ProductItem from "../pages/product-item";
-import ProductsList from "../components/common/products-list";
-import NotFound from "../components/common/not-found";
-import Error404 from "../components/common/not-found/Error404";
-import NotAuthenticated from "../components/common/not-authenticated";
+import Home from "pages/main-page";
+import Profile from "pages/profile";
+import Cart from "components/common/cart";
+import ProductItem from "pages/product-item";
+import NotFound from "components/common/not-found";
+import ProductsList from "components/common/products-list";
+import Error404 from "components/common/not-found/Error404";
+import NotAuthenticated from "components/common/not-authenticated";
 
 export const routes = [
   {

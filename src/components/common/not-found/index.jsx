@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-import { paths } from "../../../routes/paths";
+import { paths } from "routes/paths";
 
 class NotFound extends Component {
   render() {

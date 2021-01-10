@@ -17,34 +17,27 @@ class RouteHandler extends Component {
     const { isAuthenticated } = this.state;
 
     return (
-      <div>
-        <Switch>
-          {routes.map((routeItem) => {
-            const { name, path, exact, needAuth, component } = routeItem;
+      <Switch>
+        {routes.map((routeItem) => {
+          const { name, path, exact, needAuth, component } = routeItem;
 
-            if (needAuth) {
-              return (
-                <AuthRoute
-                  key={name}
-                  path={path}
-                  exact={exact}
-                  component={component}
-                  isAuthenticated={isAuthenticated}
-                />
-              );
-            }
-
+          if (needAuth) {
             return (
-              <Route
+              <AuthRoute
                 key={name}
                 path={path}
                 exact={exact}
                 component={component}
+                isAuthenticated={isAuthenticated}
               />
             );
-          })}
-        </Switch>
-      </div>
+          }
+
+          return (
+            <Route key={name} path={path} exact={exact} component={component} />
+          );
+        })}
+      </Switch>
     );
   }
 }

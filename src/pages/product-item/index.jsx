@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-class ProductItem extends Component {
+class ProductItemPage extends Component {
   render() {
     const { productId } = this.props.match.params;
 
@@ -9,4 +9,4 @@ class ProductItem extends Component {
   }
 }
 
-export default withRouter(ProductItem);
+export default withRouter(ProductItemPage);

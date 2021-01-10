@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../../base/button/style.css";
+import "components/base/button/style.css";
 import styles from "./style.module.css";
 
 class Product extends Component {

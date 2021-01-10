@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import Cart from "../../components/common/cart";
-import Header from "../../components/layout/header";
-import NavBar from "../../components/common/nav-bar";
-import ProductsList from "../../components/common/products-list";
+import Cart from "components/common/cart";
+import Header from "components/layout/header";
+import NavBar from "components/common/nav-bar";
+import ProductsList from "components/common/products-list";
 
 import styles from "./style.module.css";
 

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Product from "../product";
-import { getMockProducts } from "../../../server.js";
-import Loading from "../../base/loading";
+import Loading from "components/base/loading";
+import { getMockProducts } from "server.js";
 
 import styles from "./style.module.css";
 
