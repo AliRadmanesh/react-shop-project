@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import "components/base/button/style.css";
+import { paths } from "routes/paths";
 import styles from "./style.module.css";
+import "components/base/button/style.css";
 
 class Product extends Component {
   render() {
@@ -9,8 +11,10 @@ class Product extends Component {
 
     return (
       <div className={styles.productItem}>
-        <div className={styles.productName}>{product.name}</div>
-        <div className={styles.productPrice}>{product.price}</div>
+        <Link to={`/product-item/${product.id}`}>
+          <div className={styles.productName}>{product.name}</div>
+          <div className={styles.productPrice}>{product.price}</div>
+        </Link>
         <button className="button-global" onClick={() => addToCart(product)}>
           Add to Cart
         </button>
