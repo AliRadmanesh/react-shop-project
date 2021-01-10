@@ -19,12 +19,25 @@ const productsList = [
   },
 ];
 
-const getMockProducts = () => {
-  return new Promise((resolve, reject) => {
+const getMockProducts = () =>
+  new Promise((resolve, reject) => {
     return setTimeout(() => {
       resolve(productsList);
     }, 1000);
   });
-};
 
-export { getMockProducts };
+const getProductById = (id) =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const FilteredProduct = productsList.filter(
+        (product) => product.id === parseInt(id)
+      );
+      if (FilteredProduct[0]) {
+        resolve(FilteredProduct[0]);
+      } else {
+        reject(`There isn't any product with id ${id}`);
+      }
+    }, 1000);
+  });
+
+export { getMockProducts, getProductById };
